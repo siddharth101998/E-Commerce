@@ -1,0 +1,91 @@
+popular jsx——————
+ <h1>Popular in Men</h1>
+      <hr />
+      <div className="popular-item">
+        {data_product.map((item)=>{
+            return <Items key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
+        })}
+      </div>
+——————————————-------------------------
+{allproducts.map((e)=>{
+            if(cartItems[e.Id]>0)
+            {
+               return  <div>
+       
+                <div className="cartitems-format">
+                    <img src={e.image} alt="" className='carticon-product-icon' />
+                    <p>{e.name}</p>
+                    <p>${e.new_price}</p>
+                    <button className='cartitems-quantity'>{cartItems[e.id]}</button>
+                    <p>{e.new_price*cartItems[e.id]}</p>
+                    <IoIosRemoveCircleOutline onClick={()=>{removeFromCart(e.id)}} />
+                </div>
+                <hr />
+              </div>
+            }
+        })}
+
+--------
+ const[allproducts,cartItems,removeFromCart]=useContext(ShopContext);
+--------------------------------
+.cartitems-total{
+    
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+}
+
+.cartitems-total-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+.cartitems-total button{
+    width: 262px;
+    height: 58px;
+    outline: none;
+    border: none;
+    background: #ff5a5a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cartitems-promocode{
+     flex: 1;
+     font-size: 15px;
+     font-weight: 500;
+}
+.cartitems-promocode p{
+    color: #555;
+}
+
+.cartitems-promobox{
+    width: 504px;
+    margin-top: 15px;
+    padding-left: 20px;
+    height: 58px;
+    background: #eaeaea;
+}
+
+.cartitems-promobox input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 330px;
+    height: 50px;
+}
+
+.cartitems-promobox button{
+    width: 170px;
+    height: 58px;
+    font-size: 16px;
+    background: black;
+    color: white;
+      cursor: pointer;
+}
+  
